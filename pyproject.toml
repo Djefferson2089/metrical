@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling>=1.22"]
+requires = ["hatchling>=1.26"]
 build-backend = "hatchling.build"
 
 [project]
@@ -14,7 +14,7 @@ keywords = ["bmi", "bmr", "tdee", "health", "cli", "typer"]
 dependencies = ["typer>=0.12"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "ruff>=0.5", "mypy>=1.10", "build>=1.2", "twine>=5.0"]
+dev = ["pytest>=8.0", "ruff>=0.5", "build>=1.2", "twine>=5.0"]
 
 [project.scripts]
 metrical = "metrical.cli:app"
@@ -26,3 +26,10 @@ addopts = "-q"
 [tool.ruff]
 line-length = 100
 target-version = "py310"
+
+# --- IMPORTANT: tell Hatch exactly what package to ship (src-layout) ---
+[tool.hatch.build.targets.wheel]
+packages = ["src/metrical"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/metrical/**", "tests/**", "README.md", "LICENSE", "pyproject.toml"]

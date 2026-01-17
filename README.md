@@ -1,3 +1,6 @@
+![CI](../../actions/workflows/ci.yml/badge.svg)
+
+
 # MetriCal
 
 MetriCal is a Python CLI for calculating **BMI**, **BMR**, and **TDEE** with **metric or imperial** inputs.
