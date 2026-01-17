@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling>=1.22"]
+build-backend = "hatchling.build"
+
+[project]
+name = "metrical-cli"
+version = "0.1.0"
+description = "MetriCal: BMI/BMR/TDEE calculator CLI with metric/imperial support."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Daniel" }]
+keywords = ["bmi", "bmr", "tdee", "health", "cli", "typer"]
+dependencies = ["typer>=0.12"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5", "mypy>=1.10", "build>=1.2", "twine>=5.0"]
+
+[project.scripts]
+metrical = "metrical.cli:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
